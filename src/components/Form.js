@@ -1,20 +1,58 @@
-import React from "react";
+import React, { useState } from "react";
 import "./../App.css";
 import "./../index.css";
 import { useForm } from "react-hook-form";
+import Message from "./Message";
 
 function Form() {
   const { register, errors, handleSubmit } = useForm();
+  const [isOpen, setIsOpen] = useState(false);
+
+  /*const [sendMsg, setMsg] = useState({
+    msg: "",
+    emoji: "",
+    title: "",
+  });*/
+
+  const [title, setTitle] = useState("");
+  const [emoji, setEmoji] = useState("");
+  const [msg, setMsg] = useState("");
+
+  const changeTitle = (title) => {
+    setTitle(title);
+  };
+  const changeEmoji = (emoji) => {
+    setEmoji(emoji);
+  };
+  const changeMsg = (msg) => {
+    setMsg(msg);
+  };
+
+  /*const changeContentModal = (text) => {
+    setMsg(text);
+  };*/
 
   const onSubmit = (data, e) => {
     console.log(data);
     e.target.reset();
 
     if (data.kilometros >= 4) {
-      console.log("Felicidades");
+      //console.log("Felicidades");
+      changeTitle("¡Felicidades!");
+      changeEmoji("🎊");
+      changeMsg(data.name + " " + data.correo);
+      setIsOpen(!isOpen);
     } else {
-      console.log("Sigue caminando");
+      //console.log("Sigue caminando");
+      changeTitle("Debes de caminar más");
+      changeEmoji("💪");
+      changeMsg(data.name + " " + data.correo);
+      setIsOpen(!isOpen);
     }
+  };
+
+  const toggleMessage = () => {
+    setIsOpen(!isOpen);
   };
 
   return (
@@ -53,6 +91,7 @@ function Form() {
             type="number"
             name="kilometros"
             placeholder="Ingrese sus kilometros"
+            min="0"
             ref={register({
               required: {
                 value: true,
@@ -60,7 +99,7 @@ function Form() {
               },
               max: {
                 value: 20,
-                message: "No más de 100km",
+                message: "No más de 20km",
               },
               min: {
                 value: 0,
@@ -71,6 +110,18 @@ function Form() {
           <span className="errors">{errors?.kilometros?.message}</span>
         </div>
         <input type="submit" value="Verificar" id="send" />
+        {isOpen && (
+          <Message
+            emoji={<span>{emoji}</span>}
+            content={
+              <>
+                <h2 className="title_modal">{title}</h2>
+                <p className="ctnt_modal">{msg}</p>
+              </>
+            }
+            handleClose={toggleMessage}
+          />
+        )}
       </form>
     </div>
   );
