@@ -1,6 +1,6 @@
 # Ejercicio 1 - Frontend
 
-![](public/portada.JPG)
+![](public/portada.jpg)
 
 ## Available Script
 
