@@ -1,0 +1,40 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+h1, h2, h3, h4, h5 {
+  font-family: 'Questrial', sans-serif;
+}
+
+input {
+  font-family: 'Montserrat', sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Montserrat', sans-serif;
+  text-align: center;
+  background: url('./img/walk.jpeg') no-repeat center center / cover;
+}
+
+.title {
+  margin: 0.6em 0 0.2em 0;
+  font-size: 4em;
+  color: snow;
+}
+
+.description {
+  font-size: 15px;
+  color: snow;
+}
+
+
+@media only screen and (max-width: 768px) {
+  .title {
+    margin: 1.2em 0 0.3em 0;
+    font-size: 2.6em;
+  }
+}
