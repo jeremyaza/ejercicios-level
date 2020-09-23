@@ -5,15 +5,13 @@ import { useForm } from "react-hook-form";
 import Message from "./Message";
 
 function Form() {
+  //Validate form
   const { register, errors, handleSubmit } = useForm();
+
+  //Modal
   const [isOpen, setIsOpen] = useState(false);
 
-  /*const [sendMsg, setMsg] = useState({
-    msg: "",
-    emoji: "",
-    title: "",
-  });*/
-
+  //Change data in modal
   const [title, setTitle] = useState("");
   const [emoji, setEmoji] = useState("");
   const [msg, setMsg] = useState("");
@@ -28,22 +26,18 @@ function Form() {
     setMsg(msg);
   };
 
-  /*const changeContentModal = (text) => {
-    setMsg(text);
-  };*/
 
+  //Data of the form
   const onSubmit = (data, e) => {
     console.log(data);
     e.target.reset();
 
     if (data.kilometros >= 4) {
-      //console.log("Felicidades");
       changeTitle("¡Felicidades!");
       changeEmoji("🎊");
       changeMsg(data.name + " " + data.correo);
       setIsOpen(!isOpen);
     } else {
-      //console.log("Sigue caminando");
       changeTitle("Debes de caminar más");
       changeEmoji("💪");
       changeMsg(data.name + " " + data.correo);

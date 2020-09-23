@@ -1,4 +1,4 @@
-/************************* Formulario *************************/
+/************************* Form *************************/
 #content_form {
   margin: 1em 0;
 }
@@ -35,7 +35,7 @@ label {
   font-size: 0.9em;
 }
 
-/*Submit*/
+/* Button submit*/
 #send {
   width: 190px;
   padding: 0.7em 0.3em;
@@ -158,6 +158,5 @@ label {
   .modal {
     width: 320px;
   }
-  
 }
 
