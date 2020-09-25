@@ -2,7 +2,7 @@
 
 ![](public/portada.jpg)
 
-# Simple React JS Project
+# React JS
 
 ## Cloning and Running the Application in local
 
