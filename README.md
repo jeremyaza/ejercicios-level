@@ -2,14 +2,22 @@
 
 ![](public/portada.jpg)
 
-## Available Script
+# Simple React JS Project
 
-In the project directory, you can run:
+## Cloning and Running the Application in local
 
-### `npm start`
+Clone the project into local
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Install all the npm packages. Go into the project folder and type the following command to install all npm packages
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+```bash
+npm install
+```
+
+In order to run the application Type the following command
+
+```bash
+npm start
+```
+
+The Application Runs on **localhost:3000**
