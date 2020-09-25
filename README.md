@@ -30,3 +30,5 @@ https://es.reactjs.org/docs/create-a-new-react-app.html
 **ReactJS** : Refer to https://reactjs.org/ to understand the concepts of ReactJS
 
 **React Hook Form** : Refer to https://react-hook-form.com/ to understand how to use the Forms
+
+**ReactJS Popup** : Refer to https://stackblitz.com/edit/reactjs-popup?file=src%2FApp.js to understand the behavior of a popup

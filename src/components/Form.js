@@ -14,7 +14,10 @@ function Form() {
   //Change data in modal
   const [title, setTitle] = useState("");
   const [emoji, setEmoji] = useState("");
-  const [msg, setMsg] = useState("");
+  const [msg, setMsg] = useState({
+    name: "",
+    email: "",
+  });
 
   const changeTitle = (title) => {
     setTitle(title);
@@ -22,10 +25,9 @@ function Form() {
   const changeEmoji = (emoji) => {
     setEmoji(emoji);
   };
-  const changeMsg = (msg) => {
-    setMsg(msg);
+  const changeMsg = (_name, _email) => {
+    setMsg({ name: _name, email: _email });
   };
-
 
   //Data of the form
   const onSubmit = (data, e) => {
@@ -35,12 +37,12 @@ function Form() {
     if (data.kilometros >= 4) {
       changeTitle("¡Felicidades!");
       changeEmoji("🎊");
-      changeMsg(data.name + " " + data.correo);
+      changeMsg(data.name, data.correo);
       setIsOpen(!isOpen);
     } else {
       changeTitle("Debes de caminar más");
       changeEmoji("💪");
-      changeMsg(data.name + " " + data.correo);
+      changeMsg(data.name, data.correo);
       setIsOpen(!isOpen);
     }
   };
@@ -61,6 +63,10 @@ function Form() {
             placeholder="Ingrese su nombre"
             ref={register({
               required: { value: true, message: "Campo requerido" },
+              maxLength: {
+                value: 20,
+                message: "No más de 20 carácteres",
+              },
             })}
           />
           <span className="errors">{errors?.name?.message}</span>
@@ -74,6 +80,10 @@ function Form() {
             placeholder="Ingrese su correo"
             ref={register({
               required: { value: true, message: "Campo requerido" },
+              maxLength: {
+                value: 30,
+                message: "No más de 30 carácteres",
+              },
             })}
           />
           <span className="errors">{errors?.correo?.message}</span>
@@ -110,7 +120,9 @@ function Form() {
             content={
               <>
                 <h2 className="title_modal">{title}</h2>
-                <p className="ctnt_modal">{msg}</p>
+                <br></br>
+                <p className="ctnt_modal">{msg.name}</p>
+                <p className="ctnt_modal">{msg.email}</p>
               </>
             }
             handleClose={toggleMessage}
